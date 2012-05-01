@@ -6,8 +6,14 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem "mongoid", "~> 2.4"
+gem "bson_ext", "~> 1.5"
+gem "mongoid-paperclip",  :require => "mongoid_paperclip"
+gem 'mongoid_slug',       :require => 'mongoid/slug'
 
 
+gem "haml", "~> 3.1.4"
+#gem "therubyracer", "~> 0.10.1"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

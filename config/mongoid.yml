@@ -1,0 +1,11 @@
+development:
+  host: localhost
+  database: terrain_jds_development
+
+test:
+  host: localhost
+  database: terrain_jds_test
+
+production:
+  host: localhost
+  database: terrain_jds_development
