@@ -1,0 +1,44 @@
+%div#title
+  Terrain Generation using the Diamond-Square algorithm, Three.js and WebGL
+  %br/
+  %span#debug
+
+#panel
+  %ul
+    %li
+      %label Width
+      = select_tag 'width', options_for_select(0..500, 500), :id => 'width'
+
+    %li
+      %label Height
+      = select_tag 'height', options_for_select(0..500, 500), :id => 'height'
+
+    %li
+      %label Segments
+      = select_tag 'segments', '<option value="6" selected="selected">65</option>'.html_safe, :id => 'segments'
+
+    %li
+      %label Smoothing factor
+      = select_tag 'smoothingfactor', options_for_select(0..65, 60), :id => 'smoothingfactor'
+
+    %li
+      <input id="generate" type="button" value="Generate" />
+
+    %li{:style => 'margin-top: 20px;'}
+      %label Texture
+      = select_tag 'texture', '<option value="0">None</option><option value="1" selected="selected">Grass</option><option value="2">Sand</option><option value="3">Rock</option>'.html_safe, :id => 'texture'
+
+
+    %li
+      %label Fog
+      = select_tag 'fog', options_for_select([0.001, 0.002], 0.001), :id => 'fog'
+    %li
+      %label Border
+      <input type="checkbox" id="border" />
+
+    %li
+      %label Show info
+      <input type="checkbox" id="showinfo" />
+
+#commands Drag with the mouse and press a, w, d, s or &larr;, &uarr;, &rarr;, &darr; and r, f keys for navigation
+#viewport{:tabindex => -1}
