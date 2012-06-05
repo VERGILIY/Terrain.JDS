@@ -7,19 +7,20 @@
   %ul
     %li
       %label Width
-      = select_tag 'width', options_for_select(0..500, 500), :id => 'width'
+      = select_tag 'width', options_for_select((2..13).map{|i| 2 ** i}, 512), :id => 'width'
 
     %li
       %label Height
-      = select_tag 'height', options_for_select(0..500, 500), :id => 'height'
+      = select_tag 'height', options_for_select((2..13).map{|i| 2 ** i}, 512), :id => 'height'
 
     %li
       %label Segments
-      = select_tag 'segments', '<option value="6" selected="selected">65</option>'.html_safe, :id => 'segments'
+      = select_tag 'segments', (1..11).map{|i| '<option value="'+i.to_s+'"'+(i==6 ? ' selected="selected"' : '')+'>'+(2**i+1).to_s+'</option>'}.join.html_safe, :id => 'segments'
+      -#= select_tag 'segments', '<option value="6" selected="selected">65</option>'.html_safe, :id => 'segments'
 
     %li
       %label Smoothing factor
-      = select_tag 'smoothingfactor', options_for_select(0..65, 60), :id => 'smoothingfactor'
+      = select_tag 'smoothingfactor', options_for_select((0..56).map{|g| 128 + g * 16}, 128), :id => 'smoothingfactor'
 
     %li
       <input id="generate" type="button" value="Generate" />
@@ -31,7 +32,7 @@
 
     %li
       %label Fog
-      = select_tag 'fog', options_for_select([0.001, 0.002], 0.001), :id => 'fog'
+      = select_tag 'fog', '<option value="0">None</option><option value="1" selected="selected">0.001</option><option value="2">0.002</option>'.html_safe, :id => 'fog'
     %li
       %label Border
       <input type="checkbox" id="border" />
